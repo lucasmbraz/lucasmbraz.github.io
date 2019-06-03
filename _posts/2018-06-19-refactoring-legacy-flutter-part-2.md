@@ -132,7 +132,6 @@ class HomePageBody extends StatefulWidget { //1
 }
 
 class _HomePageBodyState extends State<HomePageBody> implements HomePageView {
-
   HomePagePresenter _presenter; //2
   List<Planet> _planets; //3
 

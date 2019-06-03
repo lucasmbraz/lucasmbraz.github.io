@@ -51,7 +51,6 @@ void main() {
       final Planet planet = planets[0];
       //3
       await tester.pumpWidget(new MaterialApp(home: new PlanetSummary(planet)));
-
       //4
       expectSummaryToShow(planet);
     });
@@ -96,10 +95,10 @@ Widget _planetValue({String value, String image}) {
     child: new Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-      new Image.asset(image, height: 12.0),
-      new Container(width: 8.0),
-      // new Text(planet.gravity, style: Style.smallTextStyle),  <---- Remove
-      new Text(value, style: Style.smallTextStyle),  // <---- Add
+        new Image.asset(image, height: 12.0),
+        new Container(width: 8.0),
+        // new Text(planet.gravity, style: Style.smallTextStyle),  <---- Remove
+        new Text(value, style: Style.smallTextStyle),  // <---- Add
       ]
     ),
   );
@@ -134,9 +133,7 @@ And now we can use this method in our test. Go ahead and change `planet_summary_
 
 {% highlight dart %}
 import '../../util/finders.dart';  // <---- Add
-
 // ...
-
 void expectSummaryToShow(Planet planet) {
   expect(find.text(planet.name), findsOneWidget);
   expect(find.text(planet.location), findsOneWidget);
@@ -188,9 +185,7 @@ To fix this issue, download the `mock_http_client.dart` and add it to `/test/uti
 
 {% highlight dart %}
 import 'dart:io';  // <---- Add
-
 // ...
-
 import '../../util/finders.dart';
 import '../../util/mock_http_client.dart'; // <---- Add
 
@@ -200,7 +195,6 @@ void main() {
       HttpOverrides.global = TestHttpOverrides(); // <---- Add
       Planet planet = planets.first;
       await tester.pumpWidget(new MaterialApp(home: new DetailPage(planet)));
-
       // ...
     });
   });
@@ -234,7 +228,6 @@ void main() {
   group('Home Page ', () {
     testWidgets('shows all the planets', (WidgetTester tester) async {
       await tester.pumpWidget(new MaterialApp(home: new HomePage()));
-
       //1
       for (Planet planet in planets.sublist(0, 3)) {
         expect(find.text(planet.name), findsOneWidget);
