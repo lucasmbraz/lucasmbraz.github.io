@@ -1,17 +1,26 @@
 .catalogue {
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+
   &-item {
-    border-bottom: 1px solid $grey-2;
     color: $default-color;
     display: inline-block;
-    padding: 2rem 0;
+    border-bottom: 1px solid $catalog_divider_color;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
 
-    &:hover .catalogue-line,
-    &:focus .catalogue-line {
-      width: 5rem;
+    &:hover .catalogue-title span,
+    &:focus .catalogue-title span {
+      border-bottom-color: $accent-color;
     }
 
     &:last-child {
       border: 0;
+    }
+
+    .more {
+      color: $accent-color
     }
   }
 
@@ -22,12 +31,16 @@
   }
 
   &-title {
-    color: $default-shade;
-    display: block;
-    font-family: $sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin: .5rem 0;
+    color: $accent-color;
+    margin-top: 0;
+    margin-bottom: 1.181em;
+    font-size: 1.27em;
+    line-height: 1.179;
+
+    span {
+      @include transition(all .3s ease-out);
+      border-bottom: 1px solid transparent;
+    }
   }
 
   &-line {

@@ -1,25 +1,19 @@
 .post {
-  padding: 3rem 0;
-  position: relative;
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
 
   &-info {
-    color: $default-tint;
-    font-family: $serif-secondary;
-    letter-spacing: 0.5px;
-    text-align: center;
-
-    span {
-      font-style: italic;
-    }
+    margin-bottom: 1.5em;
+    color: #aaa;
   }
 
   &-title {
-    color: $default-shade;
-    font-family: $open-sans;
-    font-size: 2.618rem;
-    margin: 0 0 1.618rem;
-    font-weight: 700;
-    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2rem;
+    line-height: 1.5;
   }
 
   &-line {
@@ -30,7 +24,7 @@
   }
 
   p {
-    margin: 1rem 0;
+    margin: 0 0 1.5rem 0;
   }
 
   a:hover {
