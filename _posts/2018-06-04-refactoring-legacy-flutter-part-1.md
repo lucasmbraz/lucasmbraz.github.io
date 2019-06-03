@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Refactoring a Legacy Flutter App - Part 1"
+title: "Refactoring a Legacy Flutter App Part 1"
 ---
 
 This is the first post in a series where we'll attempt to safely and gradually refactor a legacy app written in Flutter.
