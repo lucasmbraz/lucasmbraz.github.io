@@ -1,24 +1,24 @@
 ---
 layout: post
-title: "Refactoring a Legacy Flutter App Part 1"
+title: "Refactoring a Legacy Flutter App"
 ---
 
-This is the first post in a series where we'll attempt to safely and gradually refactor a legacy app written in Flutter.
+This is the first post in a series where we\'ll attempt to safely and gradually refactor a legacy app written in Flutter.
 
-If you don't know what Flutter is, check out the [awesome 2-part episode](https://fragmentedpodcast.com/episodes/118/) of the Fragmented podcast or this [Google I/O presentation](https://www.youtube.com/watch?v=w2TcYP8qiRI).
+If you don\'t know what Flutter is, check out the [awesome 2-part episode](https://fragmentedpodcast.com/episodes/118/) of the Fragmented podcast or this [Google I/O presentation](https://www.youtube.com/watch?v=w2TcYP8qiRI).
 
-If you do know what Flutter is and are wondering: *"how can there be any legacy code in Flutter? It's not old enough for that"*. The answer is in [Michael Feather's definition](https://www.techdoneright.io/11). He defends the idea that legacy code is not necessarily old code, but code without automated tests.
+If you do know what Flutter is and are wondering: *\"how can there be any legacy code in Flutter? It\'s not old enough for that\"*. The answer is in [Michael Feather\'s definition](https://www.techdoneright.io/11). He defends the idea that legacy code is not necessarily old code, but code without automated tests.
 
 # The Goal
-Here's what we'll do: we will cover the app with automated tests, so that we have a safety net in case we make mistakes, and then we'll refactor the code and apply the MVP architectural pattern.
+Here\'s what we\'ll do: we will cover the app with automated tests, so that we have a safety net in case we make mistakes, and then we\'ll refactor the code and apply the MVP architectural pattern.
 
 ## The App
 ![the app](https://cdn-images-1.medium.com/max/1600/1*gPfZYLOXsYomE332DifeLw.png "the app")
-The app we're going to refactor is the [beautiful Planets app](https://sergiandreplace.com/planets-flutter-from-design-to-app/) created by Sergi Martínez. This app is nice because it looks great, Sergi has a [whole series](https://sergiandreplace.com//tags/planets/) showing how he built it and he focused solely on the UI part.
+The app we\'re going to refactor is the [beautiful Planets app](https://sergiandreplace.com/planets-flutter-from-design-to-app/) created by Sergi Martínez. This app is nice because it looks great, Sergi has a [whole series](https://sergiandreplace.com//tags/planets/) showing how he built it and he focused solely on the UI part.
 
-This means we have a cool, working app with lots of room for improvement in terms of architecture. If you were building a prototype and had to move fast (like in a startup) this is probably how you would've done it.
+This means we have a cool, working app with lots of room for improvement in terms of architecture. If you were building a prototype and had to move fast (like in a startup) this is probably how you would\'ve done it.
 
-You can see this series as the natural next step. You've built a prototype and validated your idea. Now it's time to make it production-ready.
+You can see this series as the natural next step. You\'ve built a prototype and validated your idea. Now it\'s time to make it production-ready.
 
 ## The Code
 To get started, checkout the code from the [Github repo](https://github.com/lucasmbraz/planets). And if you want to jump straight to the solution, take a look at the [part-1 branch](https://github.com/lucasmbraz/planets/tree/part-1).
@@ -28,14 +28,14 @@ According to the [Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html)
 
 The issue that often arises when creating unit tests for legacy apps is that the code is usually not testable. This makes writing unit tests very hard and sometimes even impossible.
 
-In order to write unit tests, we might have to change the code. But if we modify the code without tests in place, we take the risk of making mistakes and introducing bugs. (Read Michael Feather's [Working Effective with Legacy Code](https://www.amazon.co.uk/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&qid=1527285607&sr=8-1&keywords=working+effectively+with+legacy+code) to learn more)
+In order to write unit tests, we might have to change the code. But if we modify the code without tests in place, we take the risk of making mistakes and introducing bugs. (Read Michael Feather\'s [Working Effective with Legacy Code](https://www.amazon.co.uk/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&qid=1527285607&sr=8-1&keywords=working+effectively+with+legacy+code) to learn more)
 
-To overcome this problem, we'll start with a higher level test. In Flutter world, this means [widget tests](https://flutter.dev/docs/testing#widget-testing). Once we have these tests in place, we can refactor the code to make it more unit testable.
+To overcome this problem, we\'ll start with a higher level test. In Flutter world, this means [widget tests](https://flutter.dev/docs/testing#widget-testing). Once we have these tests in place, we can refactor the code to make it more unit testable.
 
 ## Planet Summary
-If you take your time to inspect the code, you're gonna see that `PlanetSummary` is used in both pages of our app. In horizontal mode, it's used as the rows of the `HomePage`. While in vertical mode, it's used as the top section of the DetailPage.
+If you take your time to inspect the code, you\'re gonna see that `PlanetSummary` is used in both pages of our app. In horizontal mode, it\'s used as the rows of the `HomePage`. While in vertical mode, it\'s used as the top section of the DetailPage.
 
-Now let's start to test. Create the file `/test/ui/common/planet_summary_widget_test.dart` with the content below.
+Now let\'s start to test. Create the file `/test/ui/common/planet_summary_widget_test.dart` with the content below.
 
 {% highlight dart %}
 import 'package:flutter/material.dart';
@@ -85,9 +85,9 @@ Now run the tests and …
 
 ![failed test execution](https://cdn-images-1.medium.com/max/1600/1*aPPVf5fnVp0vUdCrDP_wCg.png "failed test execution")
 
-**Boom!** The tests fail with the message *'2 widgets with text "3.711 m/s"'*. Hooray!!!! We've found a bug.
+**Boom!** The tests fail with the message *\'2 widgets with text \"3.711 m/s\"\'*. Hooray!!!! We\'ve found a bug.
 
-Let's fix it by changing the following line in the `PlanetSummary` class.
+Let\'s fix it by changing the following line in the `PlanetSummary` class.
 
 {% highlight dart %}
 Widget _planetValue({String value, String image}) {
@@ -277,7 +277,7 @@ addons:
   apt:
     # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
     sources:
-      - ubuntu-toolchain-r-test # if we don't specify this, the libstdc++6 we get is the wrong version
+      - ubuntu-toolchain-r-test # if we don\'t specify this, the libstdc++6 we get is the wrong version
     packages:
       - libstdc++6
       - fonts-droid
