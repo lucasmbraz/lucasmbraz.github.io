@@ -6,8 +6,7 @@ layout: default
   <h2 class="post-title">{{ page.title }}</h2>
   <div class="post-info">
     {% if page.date %}
-      <!-- <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time> -->
-      <time>30 May 2015</time>
+      <time datetime="{{ page.date }}">{{ page.date | date: "%d %B %Y" }}</time>
     {% endif %}
   </div>
   <!-- <div class="post-line"></div> -->
