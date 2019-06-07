@@ -1,47 +1,43 @@
 * {
   @include box-sizing;
-  line-height: 1.6;
-}
-
-html,
-body {
-  color: $default-color;
-  margin: 0;
-  padding: 0;
 }
 
 html {
-  font-family: $serif-primary;
-  font-size: 18px;
-  overflow-y: scroll;
+  font-family: $primary;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 100%;
+  line-height: 1.5;
 
-  @media (min-width: 800px) {
-    font-size: 22px;
+  @media (min-width: 30em) {
+    font-size: 112.5%;
+  }
+
+  @media (min-width: 45em) {
+    font-size: 125%;
+  }
+
+  @media (min-width: 60em) {
+    font-size: 137.5%;
   }
 }
 
 body {
-  -webkit-text-size-adjust: 100%;
-  font-family: $lora;
-  line-height: 1.6;
-  min-width: 300px;
-  display: block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $default-shade;
-  font-family: $sans-serif;
-  line-height: normal;
+  margin: 0;
+  color: $text-color;
+  background-color: $background-color;
 }
 
 a {
-  color: $blue;
+  color: $accent-color;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
 }
 
 blockquote {

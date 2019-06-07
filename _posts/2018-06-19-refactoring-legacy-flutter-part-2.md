@@ -76,7 +76,7 @@ Again, this is very simple. We receive an instance of `HomePageView`, and when `
 
 Next, we’ll unit test this presenter. First, create two folders inside `/test` named `widget` and `unit`. Then, move the existing tests to the `widget` folder. Your tree structure should look like this:
 
-![Tree structure](https://cdn-images-1.medium.com/max/1600/1*_sNpoqzssgWwTun5v1KHPw.png)
+![Tree structure](/assets/refactoring-legacy-flutter-part-2/tree-structure.png)
 
 After that, create the file `/unit/ui/home/home_page_presenter_test.dart`:
 
